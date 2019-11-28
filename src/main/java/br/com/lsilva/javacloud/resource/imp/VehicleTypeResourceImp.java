@@ -24,7 +24,8 @@ public class VehicleTypeResourceImp implements BaseResource<VehicleType> {
     }
 
     @Override
-    public ResponseEntity<?> findAll() {
+    @GetMapping("/all")
+    public ResponseEntity<List<VehicleType>> findAll() {
         List<VehicleType> vehicleTypeList = this.service.findAll();
         if (vehicleTypeList.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -33,7 +34,8 @@ public class VehicleTypeResourceImp implements BaseResource<VehicleType> {
     }
 
     @Override
-    public ResponseEntity<?> save(VehicleType vehicleType) {
+    @PostMapping("/save")
+    public ResponseEntity<VehicleType> save(VehicleType vehicleType) {
         VehicleType newVehicleType = this.service.save(vehicleType);
         if (newVehicleType == null || newVehicleType.getId() == null) {
             return ResponseEntity.badRequest().build();
@@ -42,7 +44,8 @@ public class VehicleTypeResourceImp implements BaseResource<VehicleType> {
     }
 
     @Override
-    public ResponseEntity<?> delete(Integer id) {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<ResponseWrapper> delete(Integer id) {
         if (!this.service.delete(id)) {
             return ResponseEntity.badRequest().build();
         }
@@ -51,7 +54,8 @@ public class VehicleTypeResourceImp implements BaseResource<VehicleType> {
     }
 
     @Override
-    public ResponseEntity<?> findById(Integer id) {
+    @GetMapping
+    public ResponseEntity<VehicleType> findById(Integer id) {
         Optional<VehicleType> optionalVehicleType = this.service.findById(id);
         if (!optionalVehicleType.isPresent()) {
             return ResponseEntity.badRequest().build();
@@ -60,7 +64,8 @@ public class VehicleTypeResourceImp implements BaseResource<VehicleType> {
     }
 
     @Override
-    public ResponseEntity<?> update(Integer id, VehicleType vehicleType) {
+    @PutMapping("/update")
+    public ResponseEntity<VehicleType> update(Integer id, VehicleType vehicleType) {
         VehicleType vehicleTypeUpdate = this.service.update(id, vehicleType);
         if (vehicleTypeUpdate == null) {
             return ResponseEntity.badRequest().build();

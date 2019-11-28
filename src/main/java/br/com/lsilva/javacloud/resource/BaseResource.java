@@ -1,22 +1,19 @@
 package br.com.lsilva.javacloud.resource;
 
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import br.com.lsilva.javacloud.model.wrapper.ResponseWrapper;
 
 public interface BaseResource<T> {
 
-    @GetMapping("/all")
-    ResponseEntity<?> findAll();
+    ResponseEntity<List<T>> findAll();
     
-    @PostMapping("/save")
-    ResponseEntity<?> save(@RequestBody T t);
+    ResponseEntity<T> save(@RequestBody T t);
 
-    @DeleteMapping("/delete/{id}")
-    ResponseEntity<?> delete(@PathVariable("id") Integer id);
+    ResponseEntity<T> findById(@RequestParam Integer id);
 
-    @GetMapping
-    ResponseEntity<?> findById(@RequestParam Integer id);
+    ResponseEntity<T> update(@RequestParam Integer id, @RequestBody T t);
 
-    @PutMapping("/update")
-    ResponseEntity<?> update(@RequestParam Integer id, @RequestBody T t);
+    ResponseEntity<ResponseWrapper> delete(@PathVariable("id") Integer id);
 }
