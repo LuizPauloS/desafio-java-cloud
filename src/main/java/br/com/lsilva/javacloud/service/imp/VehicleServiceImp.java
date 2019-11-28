@@ -2,9 +2,9 @@ package br.com.lsilva.javacloud.service.imp;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import br.com.lsilva.javacloud.exception.BadRequestException;
 import br.com.lsilva.javacloud.model.Vehicle;
 import br.com.lsilva.javacloud.repository.VehicleRepository;
 import br.com.lsilva.javacloud.service.BaseService;
@@ -25,9 +25,13 @@ public class VehicleServiceImp implements BaseService<Vehicle> {
     }
 
     @Override
-    public Vehicle update(Vehicle vehicle) {
-        Optional<Vehicle> optionalVehicle = this.repository.findById(vehicle.getId());
-        return null;
+    public Vehicle update(Integer id, Vehicle vehicle) {
+        Optional<Vehicle> optionalVehicle = this.repository.findById(id);
+        if (optionalVehicle.isPresent() && optionalVehicle.get().getId().equals(id)) {
+            vehicle.setId(optionalVehicle.get().getId());
+            return this.repository.save(vehicle);
+        }
+        throw new BadRequestException("Error update Vehicle!");
     }
 
     @Override
@@ -42,7 +46,12 @@ public class VehicleServiceImp implements BaseService<Vehicle> {
 
     @Override
     public Boolean delete(Integer id) {
-        return null;
+        Optional<Vehicle> optionalVehicle = this.repository.findById(id);
+        if (optionalVehicle.isPresent()) {
+            this.repository.delete(optionalVehicle.get());
+            return true;
+        }
+        return false;
     }
     
 }

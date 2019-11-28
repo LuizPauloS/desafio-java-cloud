@@ -7,11 +7,11 @@ public interface BaseService<T> {
 
     T save(T entity);
 
-    T update(T entity);
-
     List<T> findAll();
 
-    Optional<T> findById(Integer id);
-
     Boolean delete(Integer id);
+
+    T update(Integer id, T entity);
+
+    Optional<T> findById(Integer id);
 }
