@@ -2,6 +2,8 @@ server:
   servlet:
     context-path: /java-cloud/v1
 spring:
+  profiles:
+    active: default
   datasource:
     url: jdbc:mysql://localhost:3306/java_cloud?useTimezone=true&serverTimezone=UTC
     username: root
@@ -16,3 +18,12 @@ spring:
         show_sql: true
         use_sql_comments: true
         format_sql: true
+
+---
+
+spring:
+  profiles: amazon-rds
+  datasource:
+    url: jdbc:mysql://database-1.cnteopdpllko.us-east-1.rds.amazonaws.com:3306/java_cloud?useTimezone=true&serverTimezone=UTC
+    username: admin
+    password: ep25dbbr
