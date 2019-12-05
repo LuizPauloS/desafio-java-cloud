@@ -3,7 +3,7 @@ server:
     context-path: /java-cloud/v1
 spring:
   profiles:
-    active: amazon-rds
+    active: default
   datasource:
     url: jdbc:mysql://localhost:3306/java_cloud?useTimezone=true&serverTimezone=UTC
     username: root
