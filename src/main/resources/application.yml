@@ -3,7 +3,7 @@ server:
     context-path: /java-cloud/v1
 spring:
   profiles:
-    active: default
+    active: heroku
   datasource:
     url: jdbc:mysql://localhost:3306/java_cloud?useTimezone=true&serverTimezone=UTC
     username: root
@@ -22,8 +22,19 @@ spring:
 ---
 
 spring:
-  profiles: amazon-rds
+  profiles: aws
   datasource:
     url: jdbc:mysql://database-1.cnteopdpllko.us-east-1.rds.amazonaws.com:3306/java_cloud?useTimezone=true&serverTimezone=UTC
     username: admin
     password: ep25dbbr
+
+---
+
+spring:
+  profiles: heroku
+  datasource:
+    url: ${DATABASE_URL}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
