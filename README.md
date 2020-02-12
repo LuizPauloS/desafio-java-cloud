@@ -14,6 +14,9 @@ as versões gratuitas).
     <li>MySql</li>
 </ul>
 
+<h3>Modelagem:</h3>
+![modelagem](https://user-images.githubusercontent.com/15934133/74362421-6d7ce400-4da7-11ea-997c-f10b4c9a2ed1.PNG)
+
 <h3>Gerando o Pacote:</h3>
 
 Sendo um projeto Maven, execute os goals clean e install na raiz do projeto para baixar 
