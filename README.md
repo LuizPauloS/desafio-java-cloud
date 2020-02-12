@@ -11,7 +11,7 @@ as versões gratuitas).
     <li>Java 8</li>
     <li>Spring Boot</li>
     <li>Maven</li>
-    <li>MySql</li>
+    <li>AWS (EC2 | RDS)</li>
 </ul>
 
 <h3>Modelagem:</h3>
