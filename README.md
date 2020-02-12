@@ -6,7 +6,7 @@ os tratamentos adequados para os erros que podem acontecer nas chamadas. Os dado
 ser gravados em um RDS da AWS e a aplicação deve rodar emuma instância EC2 da AWS (utilizar
 as versões gratuitas).
 
-<h3>`Tecnologias:`</h3>
+<h3>Tecnologias:</h3>
 <ul>
     <li>Java 8</li>
     <li>Spring Boot</li>
@@ -14,7 +14,7 @@ as versões gratuitas).
     <li>MySql</li>
 </ul>
 
-<h3>`Gerando o Pacote:`</h3>
+<h3>Gerando o Pacote:</h3>
 
 Sendo um projeto Maven, execute os goals clean e install na raiz do projeto para baixar 
 as dependências e gerar jar do projeto.
@@ -31,4 +31,4 @@ tomcat embedded.
 #!/java-cloud/target
 $ java -jar java-cloud-0.0.1-SNAPSHOT.jar
 ```  
-<h3>`Banco de Dados:`</h3>
+<h3>Banco de Dados:</h3>
