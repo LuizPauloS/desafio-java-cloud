@@ -1,9 +1,9 @@
 <h1>Desafio Java Cloud</h1>
 
 O desafio consiste em desenvolver uma API em Java utilizando REST onde consigamos
-cadastrar/editar/deletar/recuperar (CRUD) um oumais veículos e seus tipos. A API deve possuir
+cadastrar/editar/deletar/recuperar (CRUD) um ou mais veículos e seus tipos. A API deve possuir
 os tratamentos adequados para os erros que podem acontecer nas chamadas. Os dados devem
-ser gravados em um RDS da AWS e a aplicação deve rodar emuma instância EC2 da AWS (utilizar
+ser gravados em um RDS da AWS e a aplicação deve rodar em uma instância EC2 da AWS (utilizar
 as versões gratuitas).
 
 <h3>Tecnologias:</h3>

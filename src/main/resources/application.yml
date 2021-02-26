@@ -1,9 +1,10 @@
 server:
   servlet:
     context-path: /java-cloud/v1
+  port: 9000
 spring:
   profiles:
-    active: heroku
+    active: default
   datasource:
     url: jdbc:mysql://localhost:3306/java_cloud?useTimezone=true&serverTimezone=UTC
     username: root
@@ -38,3 +39,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:mysql://database:3306/java_cloud?useTimezone=true&serverTimezone=UTC
