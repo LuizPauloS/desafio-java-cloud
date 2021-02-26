@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  database:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: java_cloud
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - app-net
+    container_name: db-vehicle
+  vehicle-api:
+    ports:
+      - "9000:9000"
+    expose:
+      - "9000"
+    depends_on:
+      - database
+    build:
+      context: .
+    restart: unless-stopped
+    tty: false
+    networks:
+      - app-net
+    container_name: api-vehicle
+volumes:
+  mariadb-data:
+networks:
+  app-net:
